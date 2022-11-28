@@ -52,7 +52,7 @@ namespace AccCheck
         }
 
         public static void MyMouseMove(int x, int y)
-        { // поставить курсор мыши в координаты x и y
+        {
             PointConverter pc = new PointConverter();
 
             Point pt = new Point(x, y);
@@ -62,7 +62,7 @@ namespace AccCheck
 
 
         public static void PlayerMove(string direction)
-        { //нажатие клавиш
+        {
             switch (direction)
             {
                 case "l":
@@ -120,7 +120,6 @@ namespace AccCheck
                     break;
             }
         }
-        //Общие переменные
         public static bool MousePressed = false;
         public static int ButtonPanelState = 1;
         public static bool TwoMenuActive = false;
@@ -128,7 +127,6 @@ namespace AccCheck
         private static string Pass;
         private static string Log;
 
-        //Доп проверки
         public static bool fey = false;
         public static bool arch = false;
         public static bool art = false;
@@ -136,10 +134,6 @@ namespace AccCheck
         public static bool exp = false;
         public static bool support = false;
         public static bool banner = false;
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public static void GlobalBody()
         {
@@ -157,24 +151,6 @@ namespace AccCheck
                     MessageBoxOptions.DefaultDesktopOnly);
                     return;
                 }
-                //Configuration
-                string CPU = "178BFBFF00800F82";
-                string HARD = "E4876FEB";
-
-                //CPU id get
-                ManagementObjectCollection mbsList = null;
-                ManagementObjectSearcher mbs = new ManagementObjectSearcher("Select * From Win32_processor");
-                mbsList = mbs.Get();
-                string id = "";
-                foreach (ManagementObject mo in mbsList)
-                {
-                    id = mo["ProcessorID"].ToString();
-                }
-
-                //Hard drive id get
-                ManagementObject dsk = new ManagementObject(@"win32_logicaldisk.deviceid=""c:""");
-                dsk.Get();
-                string dskid = dsk["VolumeSerialNumber"].ToString();
 
                 string folder = "";
                 using (var fbd = new FolderBrowserDialog())
@@ -197,7 +173,6 @@ namespace AccCheck
                         MyMouseMove(rect.Left + 643, rect.Top + 374);
                         PlayerMove("lmb");
                         
-                        //Скрин комманды
                         Color colr = Color.FromArgb(255, 255, 255, 255);
                         for (Color pixel = Color.FromArgb(0, 0, 0, 0); colr != pixel;)
                         {
@@ -282,9 +257,8 @@ namespace AccCheck
                         PlayerMove("esc");
                         Thread.Sleep(50);
                         PlayerMove("esc");
-                        //
 
-                        //Скрин оружия
+
                         colr = Color.FromArgb(255, 255, 255, 255);
                         for (Color pixel = Color.FromArgb(0, 0, 0, 0); colr != pixel;)
                         {
@@ -350,9 +324,8 @@ namespace AccCheck
                             image.Save(folder + @"\" + imagenum + @".png", ImageFormat.Png);
                             imagenum++;
                         }
-                        //
 
-                        //Скрин артефактов
+
                         if (art == true)
                         {
                             MyMouseMove(rect.Left + 452, rect.Top + 60);
@@ -398,9 +371,8 @@ namespace AccCheck
                                 }
                             }
                         }
-                        //
 
-                        //Скрин карт опыта
+
                         if (exp == true)
                         {
                             MyMouseMove(rect.Left + 518, rect.Top + 60);
@@ -433,9 +405,8 @@ namespace AccCheck
                                 imagenum++;
                             }
                         }
-                        //
 
-                        //Скрин фей
+
                         if (fey == true)
                         {
                             MyMouseMove(rect.Left + 709, rect.Top + 60);
@@ -468,9 +439,8 @@ namespace AccCheck
                                 imagenum++;
                             }
                         }
-                        //
 
-                        //Скрин смолы
+
                         if (resin == true)
                         {
                             MyMouseMove(rect.Left + 837, rect.Top + 60);
@@ -504,12 +474,8 @@ namespace AccCheck
                             }
                         }
                         PlayerMove("esc");
-                        //
 
 
-
-
-                        //Скрин баннера
                         if (banner == true)
                         {
                             colr = Color.FromArgb(255, 255, 255, 255);
@@ -671,13 +637,8 @@ namespace AccCheck
                             Thread.Sleep(200);
                             PlayerMove("esc");
                         }
-                        //
 
 
-
-
-
-                        //Скрин менюшки 
                         colr = Color.FromArgb(255, 255, 255, 255);
                         for (Color pixel = Color.FromArgb(0, 0, 0, 0); colr != pixel;)
                         {
@@ -714,9 +675,8 @@ namespace AccCheck
                                 }
                             }
                         }
-                        //
 
-                        //Скрин магазина кристаллов
+
                         MyMouseMove(rect.Left + 135, rect.Top + 303);
                         PlayerMove("lmb");
                         colr = Color.FromArgb(255, 236, 229, 216);
@@ -902,9 +862,8 @@ namespace AccCheck
                             }
                             PlayerMove("esc");
                         }
-                        //
 
-                        //Скрин Привязок
+
                         colr = Color.FromArgb(255, 80, 89, 107);
                         for (Color pixel = Color.FromArgb(0, 0, 0, 0); colr != pixel;)
                         {
@@ -1163,9 +1122,7 @@ namespace AccCheck
         {
             if (Timerended == 0)
             {
-                // Create a timer with a two second interval.
                 aTimer = new System.Timers.Timer(1000);
-                // Hook up the Elapsed event for the timer. 
                 aTimer.Elapsed += OnTimedEvent;
                 aTimer.AutoReset = false;
                 aTimer.Enabled = true;
