@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AccCheck.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Buttonlog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Копировать логин</Value>
+    </Setting>
+    <Setting Name="Buttonpass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Копировать пароль</Value>
+    </Setting>
+    <Setting Name="Textboxlog" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
